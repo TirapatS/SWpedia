@@ -11,20 +11,18 @@ import PeoplePage from './pages/PeoplePage'
 function App() {
     return (
         <div className="App">
-            <nav>
-                <h1>SWpedia</h1>
-            </nav>
-            <Routes>
-                <Route exact path="/">
-                    <HomePage />
-                </Route>
-                <Route path="/movie">
-                    <MoviePage />
-                </Route>
-                <Route path="/people">
-                    <PeoplePage />
-                </Route>
-            </Routes>
+
+            <Container className="py-3">
+                <Routes>
+                    <Route exact path="/">element={<HomePage />}</Route>
+                    <Route path="/movie">element={<MoviePage />}</Route>
+                    <Route path="/movie/:id">element={<MoviePage />}</Route>
+                    <Route path="/people">element={<PeoplePage />}</Route>
+                    <Route path="/people/:id">element={<PeoplePage />}</Route>
+                </Routes>
+            </Container>
         </div>
     )
 }
+
+export default App;
