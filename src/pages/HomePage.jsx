@@ -10,6 +10,9 @@ import Image from 'react-bootstrap/Image'
 import Button from 'react-bootstrap/Button'
 import Container from 'react-bootstrap/Container'
 
+// React imports
+import {Link} from 'react-router-dom'
+
 
 const HomePage = () => {
     return (
@@ -22,7 +25,7 @@ const HomePage = () => {
                                 <Image src={MoviePoster} height={400}></Image>
                             </div>
                             <div className="mt-4 text-center">
-                                <Button variant="outline-light" size="md">
+                                <Button as={Link} to="/movie" variant="outline-light" size="md">
                                     Movies
                                 </Button>
                             </div>
@@ -33,7 +36,7 @@ const HomePage = () => {
                                 <Image src={PeoplePoster} height={400}></Image>
                             </div>
                             <div className="mt-4 text-center">
-                                <Button variant="outline-light" size="md">
+                                <Button as={Link} to="/people" variant="outline-light" size="md">
                                     Peoples
                                 </Button>
                             </div>
