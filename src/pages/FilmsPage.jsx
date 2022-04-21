@@ -51,7 +51,7 @@ const FilmsPage = () => {
                         <ListGroup.Item
                             action
                             as={Link}
-                            key={film.episode_id}
+                            key={film.id}
                             to={`/film/${film.id}`}
                         >
                             <h4>{film.title}</h4>
