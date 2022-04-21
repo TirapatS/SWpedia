@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react'
+
 import ListGroup from 'react-bootstrap/ListGroup'
+
 import { Link } from 'react-router-dom'
 
 
@@ -9,12 +11,15 @@ import '../assets/style.css'
 
 const FilmsPage = () => {
     const [Films, setFilms] = useState([])
+    const [loading, setLoading] = useState(false)
 
     const getFilms = async () => {
-        
+
         const data = await SWAPI.getFilms()
 
         setFilms(data.results)
+
+        setLoading(true)
 
         data.results.sort((a, b) => a.episode_id - b.episode_id)
     }
@@ -22,9 +27,14 @@ const FilmsPage = () => {
             getFilms()
     }, [])
 
+    if(!loading) {
+        return <h3>Loading...</h3>
+    }
+
     return (
-        <>
+        <>    
             <h1 className="mb-3">Films</h1> 
+    
 
             {Films.length > 0 && (
                 <ListGroup>
@@ -32,7 +42,7 @@ const FilmsPage = () => {
                         <ListGroup.Item
                             action
                             as={Link}
-                            key={film.id}
+                            key={film.episode_id}
                             to={`/film/${film.id}`}
                         >
                             <h4>{film.title}</h4>
@@ -43,6 +53,7 @@ const FilmsPage = () => {
                     )}
                 </ListGroup>
             )}
+
         </>
     )
 }

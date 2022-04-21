@@ -11,6 +11,7 @@ import '../assets/style.css'
 const PeoplesPage = () => {
 
     const [peoples, setPeople] = useState([])
+    const [loading, setLoading] = useState(false)
 
     const getPeoples = async () => {
         
@@ -18,11 +19,17 @@ const PeoplesPage = () => {
 
         setPeople(data.results)
 
+        setLoading(true)
+
         data.results.sort((a, b) => a.episode_id - b.episode_id)
     }
         useEffect(() =>{
             getPeoples()
     }, [])
+
+    if(!loading) {
+        return <h3>Loading...</h3>
+    }
 
     return (
         <>

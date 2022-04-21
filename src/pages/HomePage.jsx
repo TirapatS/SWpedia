@@ -10,7 +10,7 @@ import Image from 'react-bootstrap/Image'
 import Button from 'react-bootstrap/Button'
 import Container from 'react-bootstrap/Container'
 
-// React imports
+// React Router imports
 import {Link} from 'react-router-dom'
 
 
