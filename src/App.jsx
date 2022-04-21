@@ -7,8 +7,8 @@ import './App.css'
 // Pages
 import HomePage from './pages/HomePage'
 
-import MoviesPage from './pages/MoviesPage'
-import MoviePage from './pages/MoviePage'
+import FilmsPage from './pages/FilmsPage'
+import FilmPage from './pages/FilmPage'
 
 import PeoplesPage from './pages/PeoplesPage'
 import PeoplePage from './pages/PeoplePage'
@@ -25,8 +25,8 @@ const App = () => {
             <Container className="py-3">
                 <Routes>
                     <Route path="/" element={<HomePage />} />
-                    <Route path="/movie" element={<MoviesPage />}/>
-                    <Route path="/movie/:id" element={<MoviePage />}/>
+                    <Route path="/film" element={<FilmsPage />}/>
+                    <Route path="/film/:id" element={<FilmPage />}/>
                     <Route path="/people" element={<PeoplesPage />}/>
                     <Route path="/people/:id" element={<PeoplePage />}/>
                     <Route path="*" element={<NotFound />}/>

@@ -1,7 +1,7 @@
 import '../assets/style.css'
 
 // Images
-import MoviePoster from '../assets/images/sw-movie-poster.jpg'
+import FilmPoster from '../assets/images/sw-film-poster.jpg'
 import PeoplePoster from '../assets/images/sw-characters-poster.jpg'
 
 
@@ -22,11 +22,11 @@ const HomePage = () => {
                     <div className="d-flex justify-content-center">
                         <div className="mx-5 mt-5">
                             <div>
-                                <Image src={MoviePoster} height={400}></Image>
+                                <Image src={FilmPoster} height={400}></Image>
                             </div>
                             <div className="mt-4 text-center">
-                                <Button as={Link} to="/movie" variant="outline-light" size="md">
-                                    Movies
+                                <Button as={Link} to="/film" variant="outline-light" size="md">
+                                    Films
                                 </Button>
                             </div>
                         </div>
