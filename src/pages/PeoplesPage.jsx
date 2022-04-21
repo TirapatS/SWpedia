@@ -55,8 +55,8 @@ const PeoplesPage = () => {
                             to={`/people/${people.url.substr(people.url.length - 2)}`}
                         >
                             <h4>{people.name}</h4>
-                            <p><strong>Appeared in</strong> {people.films.length} movie/s</p>
                             <p><strong>Born</strong> {people.birth_year}</p>
+                            <p><strong>Appeared in</strong> {people.films.length} movie/s</p>
                         </ListGroup.Item>
                     )}
                 </ListGroup>
