@@ -1,5 +1,8 @@
 import { useState, useEffect } from 'react'
+
 import ListGroup from 'react-bootstrap/ListGroup'
+import Spinner from 'react-bootstrap/Spinner'
+
 import { Link } from 'react-router-dom'
 
 import BrowsePage from '../components/BrowsePages'
@@ -28,7 +31,14 @@ const PeoplesPage = () => {
     }, [])
 
     if(!loading) {
-        return <h3>Loading...</h3>
+        return (
+            <>
+                <span className="loading">Loading...</span>
+                <Spinner animation="border" variant="light">
+                </Spinner>
+            </>
+          
+        )
     }
 
     return (
