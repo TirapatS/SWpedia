@@ -38,7 +38,7 @@ const PeoplesPage = () => {
                             to={`/people/${people.id}`}
                         >
                             <h4>{people.name}</h4>
-                            <p><strong>Appeared in</strong> {people.films.length} movies</p>
+                            <p><strong>Appeared in</strong> {people.films.length} movie/s</p>
                             <p><strong>Born</strong> {people.birth_year}</p>
                         </ListGroup.Item>
                     )}
