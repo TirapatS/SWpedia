@@ -14,7 +14,7 @@ const Navigation = () => {
 				</Navbar.Brand>
 					
 				<Nav>
-					<Nav.Link as={NavLink} end to="/"><h3>Home</h3></Nav.Link>
+					<Nav.Link as={NavLink} end to="/"><u><h3>Home</h3></u></Nav.Link>
 				</Nav>
 			</Container>
 		</Navbar>
