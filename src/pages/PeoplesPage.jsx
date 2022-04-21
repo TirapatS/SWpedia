@@ -51,8 +51,8 @@ const PeoplesPage = () => {
                         <ListGroup.Item
                             action
                             as={Link}
-                            key={people.id}
-                            to={`/people/${people.id}`}
+                            key={people.url.substr(people.url.length - 2)}
+                            to={`/people/${people.url.substr(people.url.length - 2)}`}
                         >
                             <h4>{people.name}</h4>
                             <p><strong>Appeared in</strong> {people.films.length} movie/s</p>
