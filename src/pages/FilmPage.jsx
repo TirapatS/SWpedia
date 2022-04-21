@@ -1,4 +1,4 @@
-const MoviePage = () => {
+const FilmPage = () => {
     return (
         <>
             
@@ -6,4 +6,4 @@ const MoviePage = () => {
     )
 }
 
-export default MoviePage;
+export default FilmPage;
