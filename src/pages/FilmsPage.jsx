@@ -22,7 +22,6 @@ const FilmsPage = () => {
 
         setLoading(true)
 
-        data.results.sort((a, b) => a.episode_id - b.episode_id)
     }
         useEffect(() =>{
             getFilms()
@@ -34,6 +33,7 @@ const FilmsPage = () => {
             <>
                 <span className="loading">Loading...</span>
                 <Spinner animation="border" variant="light">
+
                 </Spinner>
             </>
           
@@ -43,16 +43,16 @@ const FilmsPage = () => {
     return (
         <>    
             <h1 className="mb-3">Films</h1> 
-    
 
             {Films.length > 0 && (
+    
                 <ListGroup>
                     {Films.map(film =>
                         <ListGroup.Item
                             action
                             as={Link}
-                            key={film.id}
-                            to={`/films/${film.id}`}
+                            key={film.url.substr(film.url.length - 2)}
+                            to={`/films/${film.url.substr(film.url.length - 2)}`}
                         >
                             <h4>{film.title}</h4>
                             <p><strong>Episode:</strong> {film.episode_id}</p>
@@ -62,7 +62,6 @@ const FilmsPage = () => {
                     )}
                 </ListGroup>
             )}
-
         </>
     )
 }
