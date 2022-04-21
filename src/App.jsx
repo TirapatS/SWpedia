@@ -25,8 +25,8 @@ const App = () => {
             <Container className="py-3">
                 <Routes>
                     <Route path="/" element={<HomePage />} />
-                    <Route path="/film" element={<FilmsPage />}/>
-                    <Route path="/film/:id" element={<FilmPage />}/>
+                    <Route path="/films" element={<FilmsPage />}/>
+                    <Route path="/films/:id" element={<FilmPage />}/>
                     <Route path="/people" element={<PeoplesPage />}/>
                     <Route path="/people/:id" element={<PeoplePage />}/>
                     <Route path="*" element={<NotFound />}/>

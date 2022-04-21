@@ -25,7 +25,7 @@ const HomePage = () => {
                                 <Image src={FilmPoster} height={400}></Image>
                             </div>
                             <div className="mt-4 text-center">
-                                <Button as={Link} to="/film" variant="outline-light" size="md">
+                                <Button as={Link} to="/films" variant="outline-light" size="md">
                                     Films
                                 </Button>
                             </div>

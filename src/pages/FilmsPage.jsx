@@ -52,7 +52,7 @@ const FilmsPage = () => {
                             action
                             as={Link}
                             key={film.id}
-                            to={`/film/${film.id}`}
+                            to={`/films/${film.id}`}
                         >
                             <h4>{film.title}</h4>
                             <p><strong>Episode:</strong> {film.episode_id}</p>
