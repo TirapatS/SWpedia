@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react'
 import ListGroup from 'react-bootstrap/ListGroup'
 import { Link } from 'react-router-dom'
-import Button from 'react-bootstrap/Button'
+
+import BrowsePage from '../components/BrowsePages'
 
 import SWAPI from '../services/SW-API'
 
@@ -44,10 +45,7 @@ const PeoplesPage = () => {
                 </ListGroup>
             )}
             
-            <div className="mt-3">
-                <Button>Previous Page</Button>
-                <Button>Next Page</Button>
-            </div>
+           <BrowsePage />
             
         </>
     )
