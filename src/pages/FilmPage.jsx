@@ -43,8 +43,9 @@ const FilmPage = () => {
 
            <div className="card">
                 <h4>Episode: {Film.episode_id}</h4>
-                 <p><strong>Released:</strong> {Film.release_date}</p>
-
+                <p><strong>Released:</strong> {Film.release_date}</p>
+                <p><strong>Director:</strong> {Film.director}</p>
+                <p><strong>Producer/s:</strong> {Film.producer}</p>
                <div>
                     <h5>Characters</h5>
                    
