@@ -21,7 +21,6 @@ const PeoplesPage = () => {
     const getPeoples = async () => {
         
         const data = await SWAPI.getPeoples()
-
         setPeople(data.results)
 
         setLoading(true)
@@ -64,10 +63,15 @@ const PeoplesPage = () => {
             )}
             
             <div className="d-flex justify-content-between mt-3">
-                <Button as={Link} to={[]} variant="secondary" size="md">
+
+                <Button 
+                   
+                    variant="secondary" size="md">
                     Previous Page
                 </Button>
-                <Button as={Link} to={[]} variant="secondary" size="md">
+                <Button
+                   
+                    variant="secondary" size="md">
                     Next Page
                 </Button>
             </div>
