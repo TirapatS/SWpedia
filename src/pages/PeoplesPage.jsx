@@ -5,7 +5,7 @@ import Spinner from 'react-bootstrap/Spinner'
 
 import { Link } from 'react-router-dom'
 
-import BrowsePage from '../components/BrowsePages'
+import Button from 'react-bootstrap/Button'
 
 import SWAPI from '../services/SW-API'
 
@@ -63,7 +63,14 @@ const PeoplesPage = () => {
                 </ListGroup>
             )}
             
-           <BrowsePage />
+            <div className="d-flex justify-content-between mt-3">
+                <Button as={Link} to={[]} variant="secondary" size="md">
+                    Previous Page
+                </Button>
+                <Button as={Link} to={[]} variant="secondary" size="md">
+                    Next Page
+                </Button>
+            </div>
             
         </>
     )
