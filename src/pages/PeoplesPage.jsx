@@ -9,6 +9,8 @@ import BrowsePage from '../components/BrowsePages'
 
 import SWAPI from '../services/SW-API'
 
+import getIdFromUrl from '../helpers/index'
+
 import '../assets/style.css'
 
 const PeoplesPage = () => {
@@ -51,8 +53,8 @@ const PeoplesPage = () => {
                         <ListGroup.Item
                             action
                             as={Link}
-                            key={people.url.substr(people.url.length - 2)}
-                            to={`/people/${people.url.substr(people.url.length - 2)}`}
+                            key={getIdFromUrl(people.url)}
+                            to={`/people/${getIdFromUrl(people.url)}`}
                         >
                             <h4>{people.name}</h4>
                             <p><strong>Born</strong> {people.birth_year}</p>

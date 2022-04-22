@@ -7,6 +7,9 @@ import { Link, useParams } from 'react-router-dom'
 
 import SWAPI from '../services/SW-API'
 
+import getIdFromUrl from '../helpers/index'
+
+
 const PeoplePage = () => {
     const [People, setPeople] = useState()
 	const { id } = useParams()
@@ -52,9 +55,20 @@ const PeoplePage = () => {
                <div className="mt-5">
                     <h5>Appeared in</h5>
 
-                    <div>
-                        
-                    </div>
+                        {People.films.length > 0 && (
+                            <ListGroup>
+                                {People.films.map(film =>
+                                    <ListGroup.Item
+                                        action
+                                        as={Link}
+                                        key={getIdFromUrl(film)}
+                                        to={`/films/${getIdFromUrl(film)}`}
+                                    >
+                                        <p><u>Film {getIdFromUrl(film)} <i className="fa-solid fa-arrow-right"></i></u></p>
+                                    </ListGroup.Item>
+                                )}
+                            </ListGroup>
+                        )}
                </div>
            </div>
             

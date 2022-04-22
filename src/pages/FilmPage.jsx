@@ -7,6 +7,8 @@ import { Link, useParams } from 'react-router-dom'
 
 import SWAPI from '../services/SW-API'
 
+import getIdFromUrl from '../helpers/index'
+
 const FilmPage = () => {
     const [Film, setFilm] = useState()
 	const { id } = useParams()
@@ -16,6 +18,7 @@ const FilmPage = () => {
 		const data = await SWAPI.getFilm(id)
 		setFilm(data)
         console.log("got data", data)
+        console.log()
 
         setLoading(true)
 	}
@@ -48,6 +51,20 @@ const FilmPage = () => {
                 <p><strong>Producer/s:</strong> {Film.producer}</p>
                <div>
                     <h5>Characters</h5>
+                    {Film.characters.length > 0 && (
+                        <ListGroup>
+                            {Film.characters.map(people =>
+                                <ListGroup.Item
+                                    action
+                                    as={Link}
+                                    key={getIdFromUrl(people)}
+                                    to={`/people/${getIdFromUrl(people)}`}
+                                >
+                                    <p><u>Character {getIdFromUrl(people)} <i className="fa-solid fa-arrow-right"></i></u></p>
+                                </ListGroup.Item>
+                            )}
+                        </ListGroup>
+                    )}
                    
                </div>
            </div>

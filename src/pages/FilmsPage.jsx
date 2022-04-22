@@ -5,8 +5,10 @@ import Spinner from 'react-bootstrap/Spinner'
 
 import { Link } from 'react-router-dom'
 
-
 import SWAPI from '../services/SW-API'
+
+import getIdFromUrl from '../helpers/index'
+
 
 import '../assets/style.css'
 
@@ -51,8 +53,8 @@ const FilmsPage = () => {
                         <ListGroup.Item
                             action
                             as={Link}
-                            key={film.url.substr(film.url.length - 2)}
-                            to={`/films/${film.url.substr(film.url.length - 2)}`}
+                            key={getIdFromUrl(film.url)}
+                            to={`/films/${getIdFromUrl(film.url)}`}
                         >
                             <h4>{film.title}</h4>
                             <p><strong>Episode:</strong> {film.episode_id}</p>
