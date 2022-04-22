@@ -26,7 +26,6 @@ const PeoplesPage = () => {
 
         setLoading(true)
 
-        data.results.sort((a, b) => a.episode_id - b.episode_id)
     }
         useEffect(() =>{
             getPeoples()
