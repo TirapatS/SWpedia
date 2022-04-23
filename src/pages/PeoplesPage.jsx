@@ -17,21 +17,21 @@ const PeoplesPage = () => {
 
     const [peoples, setPeople] = useState([])
     const [loading, setLoading] = useState(false)
-    const [page, setPage] = useState(2)
+    const [page, setPage] = useState(1)
 
-    const getPeoples = async () => {
+    const getPeoples = async (page = 1) => {
         
-        const data = await SWAPI.getPeoples()
+        const data = await SWAPI.getPeoples(page)
         setPeople(data)
 
         setLoading(true)
 
     }
         useEffect(() =>{
-            getPeoples()
-    }, [])
+            getPeoples(page)
+    }, [page])
 
-    const getNextPage = () => {
+    /* const getNextPage = () => {
         setPage(page + 1)
         fetch(`https://swapi.dev/api/people/?page=${page}`)
         .then((response) => response.json())
@@ -43,9 +43,9 @@ const PeoplesPage = () => {
             console.log("Error")
         })
         
-    }
+    } */
 
-    const getPrevPage = () => {
+   /*  const getPrevPage = () => {
         setPage(page - 1)
         fetch(`https://swapi.dev/api/people/?page=${page - 2}`)
         .then((response) => response.json())
@@ -59,7 +59,7 @@ const PeoplesPage = () => {
         .catch(()=> {
             console.log("Error")
         })
-    }
+    } */
 
     if(!loading) {
         return (
@@ -98,16 +98,18 @@ const PeoplesPage = () => {
                  
             <div className="d-flex justify-content-between mt-3">
                 <Button 
-                    onClick={getPrevPage}
+                     onClick={() => setPage(prevValue => prevValue - 1)}
+                   /*  onClick={getPrevPage} */
                     disabled={!peoples.previous}
                     variant="secondary" size="md">
                     Previous Page
                 </Button>
                 <div>
-                    <h3>Page {page-1}</h3>
+                    <h3>Page {page}</h3>
                 </div>
                 <Button
-                    onClick={getNextPage}
+                    onClick={() => setPage(prevValue => prevValue + 1)}
+                   /*  onClick={getNextPage} */
                     disabled={!peoples.next}
                     variant="secondary" size="md">
                     Next Page
