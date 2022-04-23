@@ -17,11 +17,12 @@ const PeoplesPage = () => {
 
     const [peoples, setPeople] = useState([])
     const [loading, setLoading] = useState(false)
+    const [page, setPage] = useState(2)
 
     const getPeoples = async () => {
         
         const data = await SWAPI.getPeoples()
-        setPeople(data.results)
+        setPeople(data)
 
         setLoading(true)
 
@@ -29,6 +30,36 @@ const PeoplesPage = () => {
         useEffect(() =>{
             getPeoples()
     }, [])
+
+    const getNextPage = () => {
+        setPage(page + 1)
+        fetch(`https://swapi.dev/api/people/?page=${page}`)
+        .then((response) => response.json())
+        .then((response) => {
+            console.log("response",response)
+            setPeople(response)
+        })
+        .catch(()=> {
+            console.log("Error")
+        })
+        
+    }
+
+    const getPrevPage = () => {
+        setPage(page - 1)
+        fetch(`https://swapi.dev/api/people/?page=${page - 2}`)
+        .then((response) => response.json())
+        .then((response) => {
+            console.log("response",response)
+            if(!response) {
+                setLoading(true)
+            }
+            setPeople(response)
+        })
+        .catch(()=> {
+            console.log("Error")
+        })
+    }
 
     if(!loading) {
         return (
@@ -45,9 +76,9 @@ const PeoplesPage = () => {
         <>
             <h1 className="mb-3">Peoples</h1> 
 
-            {peoples.length > 0 && (
+            {peoples.results.length > 0 && (
                 <ListGroup>
-                    {peoples.map(people =>
+                    {peoples.results.map(people =>
                         <ListGroup.Item
                             action
                             as={Link}
@@ -61,20 +92,29 @@ const PeoplesPage = () => {
                     )}
                 </ListGroup>
             )}
-            
-            <div className="d-flex justify-content-between mt-3">
 
+            {/* If peoples.next or peoples.previous exists, display them. */}
+            {peoples && (peoples.next || peoples.previous) ? (
+                 
+            <div className="d-flex justify-content-between mt-3">
                 <Button 
-                   
+                    onClick={getPrevPage}
+                    disabled={!peoples.previous}
                     variant="secondary" size="md">
                     Previous Page
                 </Button>
+                <div>
+                    <h3>Page {page-1}</h3>
+                </div>
                 <Button
-                   
+                    onClick={getNextPage}
+                    disabled={!peoples.next}
                     variant="secondary" size="md">
                     Next Page
                 </Button>
             </div>
+            ) : null}
+           
             
         </>
     )
