@@ -31,36 +31,6 @@ const PeoplesPage = () => {
             getPeoples(page)
     }, [page])
 
-    /* const getNextPage = () => {
-        setPage(page + 1)
-        fetch(`https://swapi.dev/api/people/?page=${page}`)
-        .then((response) => response.json())
-        .then((response) => {
-            console.log("response",response)
-            setPeople(response)
-        })
-        .catch(()=> {
-            console.log("Error")
-        })
-        
-    } */
-
-   /*  const getPrevPage = () => {
-        setPage(page - 1)
-        fetch(`https://swapi.dev/api/people/?page=${page - 2}`)
-        .then((response) => response.json())
-        .then((response) => {
-            console.log("response",response)
-            if(!response) {
-                setLoading(true)
-            }
-            setPeople(response)
-        })
-        .catch(()=> {
-            console.log("Error")
-        })
-    } */
-
     if(!loading) {
         return (
             <>
@@ -116,7 +86,6 @@ const PeoplesPage = () => {
                 </Button>
             </div>
             ) : null}
-           
             
         </>
     )
