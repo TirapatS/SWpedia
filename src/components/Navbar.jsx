@@ -4,6 +4,9 @@ import Navbar from 'react-bootstrap/Navbar'
 import Nav from 'react-bootstrap/Nav'
 import { Link, NavLink } from 'react-router-dom'
 
+import Image from 'react-bootstrap/Image'
+import Yoda from '../assets/images/yoda.png'
+
 const Navigation = () => {
 	return (
 		<Navbar bg="dark" variant="dark" expand="md">
@@ -14,7 +17,10 @@ const Navigation = () => {
 				</Navbar.Brand>
 					
 				<Nav>
-					<Nav.Link as={NavLink} end to="/"><u><h3>Home</h3></u></Nav.Link>
+					<Nav.Link as={NavLink} end to="/">
+						<u><h3>Home</h3></u>
+						</Nav.Link>
+						<Image src={Yoda} height="50"></Image>	
 				</Nav>
 			</Container>
 		</Navbar>
